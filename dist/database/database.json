@@ -30,5 +30,25 @@
       "shapeName": "triangle",
       "area": null,
       "id": 3
+   },
+   {
+      "createdAt": "2021-05-09T22:46:32.563Z",
+      "dimension": {
+         "length": 2,
+         "breadth": 3
+      },
+      "shapeName": "rectangle",
+      "area": 6,
+      "id": 4
+   },
+   {
+      "createdAt": "2021-05-09T22:47:20.793Z",
+      "dimension": {
+         "length": 2,
+         "breadth": "4"
+      },
+      "shapeName": "rectangle",
+      "area": 8,
+      "id": 5
    }
 ]
