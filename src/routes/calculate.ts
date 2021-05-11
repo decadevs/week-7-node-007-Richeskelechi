@@ -50,7 +50,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                     message: "cannot save"
                                 })
                             }
-                            return res.status(200).send(user);
+                            return res.status(201).send(user);
                         });
                     }else if(typeof length == "string" || typeof breadth == "string"){
                         let len1 = Number(length)
@@ -75,7 +75,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                         message: "cannot save"
                                     })
                                 }
-                                return res.status(200).send(user);
+                                return res.status(201).send(user);
                             });
                         }
                     }else{
@@ -83,7 +83,9 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                     }
                 }
             }else{
-                return res.send("The Length And Breadth Of The Rectangle Must Be Provided")
+                return res.status(400).json({
+                    message: "The Length And Breadth Of The Rectangle Must Be Provided"
+                })
             }
         }else if(shape == "square"){
             let side = incoming.dimension
@@ -105,7 +107,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                             message: "cannot save"
                         })
                     }
-                    return res.status(200).send(user);
+                    return res.status(201).send(user);
                 });
             }else if(typeof side == "string"){
                 let sides = Number(side)
@@ -129,7 +131,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                 message: "cannot save"
                             })
                         }
-                        return res.status(200).send(user);
+                        return res.status(201).send(user);
                     });
                 }
             }else{
@@ -164,7 +166,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                     message: "cannot save"
                                 })
                             }
-                            return res.status(200).send(user);
+                            return res.status(201).send(user);
                         });
                     }else if(typeof length == "string" || typeof width == "string" || typeof breadth == "string"){
                         let len1 = Number(length)
@@ -193,7 +195,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                         message: "cannot save"
                                     })
                                 }
-                                return res.status(200).send(user);
+                                return res.status(201).send(user);
                             });
                         }
                     }else{
@@ -223,7 +225,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                             message: "cannot save"
                         })
                     }
-                    return res.status(200).send(user);
+                    return res.status(201).send(user);
                 });
             }else if(typeof radius == "string"){
                 let radiuss = Number(radius)
@@ -247,7 +249,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                 message: "cannot save"
                             })
                         }
-                        return res.status(200).send(user);
+                        return res.status(201).send(user);
                     });
                 }
             }else{
@@ -287,7 +289,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                     message: "cannot save"
                                 })
                             }
-                            return res.status(200).send(user);
+                            return res.status(201).send(user);
                         });
                     }else if(typeof length == "string" || typeof breadth == "string"){
                         let len1 = Number(length)
@@ -312,7 +314,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                         message: "cannot save"
                                     })
                                 }
-                                return res.status(200).send(user);
+                                return res.status(201).send(user);
                             });
                         }
                     }else{
@@ -320,7 +322,9 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                     }
                 }
             }else{
-                return res.send("The Length And Breadth Of The Rectangle Must Be Provided")
+                return res.status(400).json({
+                    message: "You Must Provide Just Length And Breadth Of The Rectangle"
+                })
             }
         }else if(shape == "square"){
             let side = incoming.dimension
@@ -342,12 +346,12 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                             message: "cannot save"
                         })
                     }
-                    return res.status(200).send(user);
+                    return res.status(201).send(user);
                 });
             }else if(typeof side == "string"){
                 let sides = Number(side)
                 if(isNaN(sides)){
-                    return res.send("The Radius Provided Is Not A Number")
+                    return res.status(404).json({message: "The Side Provided Is Not A Number"})
                 }else{
                     let squareArea = Number((sides * sides).toFixed(2))
                     let user: shapeData = {
@@ -366,7 +370,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                 message: "cannot save"
                             })
                         }
-                        return res.status(200).send(user);
+                        return res.status(201).send(user);
                     });
                 }
             }else{
@@ -377,7 +381,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
             if (typeof each == "object") {
                 let len = Object.keys(each).length
                 if (+len != 3) {
-                    res.status(400).send("You Must Provide The Length, Width And Breadth Of The Rectangle")
+                    res.status(400).json({message:"You Must Provide The Length, Width And Breadth Of The Triangle"})
                 }else{
                     let {length, width, breadth} = each;
                     if (typeof length == "number" && typeof width == "number" && typeof breadth == "number") {
@@ -401,7 +405,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                     message: "cannot save"
                                 })
                             }
-                            return res.status(200).send(user);
+                            return res.status(201).send(user);
                         });
                     }else if(typeof length == "string" || typeof width == "string" || typeof breadth == "string"){
                         let len1 = Number(length)
@@ -430,7 +434,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                         message: "cannot save"
                                     })
                                 }
-                                return res.status(200).send(user);
+                                return res.status(201).send(user);
                             });
                         }
                     }else{
@@ -460,7 +464,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                             message: "cannot save"
                         })
                     }
-                    return res.status(200).send(user);
+                    return res.status(201).send(user);
                 });
             }else if(typeof radius == "string"){
                 let radiuss = Number(radius)
@@ -484,7 +488,7 @@ router.post('/calculate', (req:Request, res:Response, next:NextFunction) => {
                                 message: "cannot save"
                             })
                         }
-                        return res.status(200).send(user);
+                        return res.status(201).send(user);
                     });
                 }
             }else{
